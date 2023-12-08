@@ -5,6 +5,11 @@
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
+        <a class="login-title" href="/">
+            <h1>H8.io</h1>
+            <x-application-logo class="logo" />
+        </a>
+
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
