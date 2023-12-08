@@ -1,4 +1,4 @@
-.mb-4 {
+.mb-login {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,9 +24,9 @@
     margin: 0 0 0 0;
 }
 
-.logo {
-    width: 40px;
-    height: 40px;
+.login-title img {
+    width: 120px;
+    height: 120px;
 }
 
 .login-box {
@@ -37,6 +37,12 @@
     flex-shrink: 0;
     border-radius: 50px;
     box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.flex {
     display: flex;
     justify-content: center;
     flex-direction: column;
