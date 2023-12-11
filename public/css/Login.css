@@ -27,13 +27,14 @@
 .login-title img {
     width: 120px;
     height: 120px;
+    margin: 0;
 }
 
-.login-box {
+.home-comp {
     padding: 20px 20px 20px 20px;
-    background-color: #1E1E1E; 
-    width: 400px;
-    height: 500px;
+    background-color: #1f2937; 
+    width: 32%;
+    height: 80%;
     flex-shrink: 0;
     border-radius: 50px;
     box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.25);
@@ -46,4 +47,19 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
+}
+
+.ms-3 {
+    margin: 20px 0px 20px 0px;
+    background-color: #1B7CFF;
+    color: #FFF;
+}
+
+.mt-1 {
+    background-color: #2C2C2C;
+}
+
+.underline {
+    color: #1B7CFF;
 }

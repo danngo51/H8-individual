@@ -1,0 +1,61 @@
+.py-12 {
+    display: flex;
+    justify-content: center;
+}
+
+.box {
+    min-height: 200px;
+    background-color: #1f2937;
+    border-color: #1f2937;
+    border-style: solid;
+    border-radius: 20px;
+    padding: 10px 10px 10px 10px;
+}
+
+.w-1 {
+    width: 50%;
+}
+
+.h {
+    color: #FFF;
+    font-family: Fira Code;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+    list-style: none;
+    margin: 10px 0px 0px 10px;
+}
+
+.form-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.content-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    margin: 20px 0px 20px 0px;
+    border-radius: 10px;
+    padding: 5px 5px 5px 5px;
+    resize: none;
+    background-color: #1f2937;
+    border-width: 1px;
+    border-color: white;
+    color: white;
+    font-family: Fira Code;
+    width: 100%;
+}
+
+.ms-3 {
+    margin: 20px 0px 20px 0px;
+    background-color: #1B7CFF;
+    color: #FFF;
+    width: 150px;
+    border-radius: 5px;
+}

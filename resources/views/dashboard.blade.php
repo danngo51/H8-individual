@@ -6,12 +6,18 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
+        <div class="box w-1">
+            <h2 class="h">Create a New Blog Post</h2>
+            <div class="box">
+                <div class="form-title">
+                    <img><i class="fas fa-user-circle"></i></img>
+                    <input class="content" type="text" id="title" name="title" placeholder="Title">
+                </div>
+                <div class="content-text">
+                    <textarea class="content" id="content" name="content" placeholder="What grinds your gears today...?" rows="6" required></textarea>
+                    <button class="ms-3" id="homepage-post-blog-button"> Post </button>
                 </div>
             </div>
-        </div>
+        </div> 
     </div>
 </x-app-layout>
