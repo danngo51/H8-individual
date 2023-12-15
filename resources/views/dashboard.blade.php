@@ -7,17 +7,29 @@
 
     <div class="py-12">
         <div class="box w-1">
-            <h2 class="h">Create a New Blog Post</h2>
-            <div class="box">
+            <form method="POST" action="{{ route('posts.store') }}">
+                @csrf <!-- CSRF token for security -->
                 <div class="form-title">
                     <img><i class="fas fa-user-circle"></i></img>
-                    <input class="content" type="text" id="title" name="title" placeholder="Title">
+                    <x-text-input id="post-title" class="block mt-1 w-full" type="text" name="title" placeholder="Title" required autofocus />
                 </div>
                 <div class="content-text">
-                    <textarea class="content" id="content" name="content" placeholder="What grinds your gears today...?" rows="6" required></textarea>
-                    <button class="ms-3" id="homepage-post-blog-button"> Post </button>
+                    <x-textarea-input id="post-content" class="block mt-1 w-full" name="content" placeholder="Write your blog post here..." rows="6" required></x-textarea-input>
+                    <x-primary-button class="ms-3" type="submit">
+                        {{ __('Post') }}
+                    </x-primary-button>
                 </div>
-            </div>
+            </form>
         </div> 
+        <!-- Place to show the posts -->
+        @foreach ($posts as $post)
+            <x-blog-template :profileName="$post->user->name">
+                <h2 id="blog-title">{{ $post->title }}</h2>
+                <div class="blog-template-text-field">
+                    <p id="blog-text">{{ $post->content }}</p>
+                </div>
+                <!-- ...other buttons... -->
+            </x-blog-template>
+        @endforeach
     </div>
 </x-app-layout>

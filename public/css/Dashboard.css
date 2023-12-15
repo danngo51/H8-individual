@@ -39,23 +39,13 @@
     flex-direction: column;
 }
 
-.content {
-    margin: 20px 0px 20px 0px;
-    border-radius: 10px;
-    padding: 5px 5px 5px 5px;
-    resize: none;
-    background-color: #1f2937;
-    border-width: 1px;
-    border-color: white;
-    color: white;
-    font-family: Fira Code;
-    width: 100%;
-}
-
 .ms-3 {
     margin: 20px 0px 20px 0px;
     background-color: #1B7CFF;
     color: #FFF;
     width: 150px;
     border-radius: 5px;
+}
+.block {
+    resize: none;
 }
