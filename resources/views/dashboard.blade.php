@@ -23,14 +23,14 @@
         </div> 
         <!-- Place to show the posts -->
         @foreach ($posts as $post)
-    <x-blog-template 
-        :profileName="$post->user->name"
-        :title="$post->title"
-        :content="$post->content"
-        :createdAt="$post->created_at"
-        :postId="$post->id"
-    >
-    </x-blog-template>
-@endforeach
+            <x-blog-template 
+                :profileName="$post->user->name"
+                :title="$post->title"
+                :content="$post->content"
+                :createdAt="$post->created_at"
+                :post="$post"
+            >
+            </x-blog-template>
+        @endforeach
     </div>
 </x-app-layout>
