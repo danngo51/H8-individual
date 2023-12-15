@@ -9,8 +9,8 @@
         <div class="box w-1">
             <form method="POST" action="{{ route('posts.store') }}">
                 @csrf <!-- CSRF token for security -->
+                <h2 class="h"> Create a H8 post </h2>
                 <div class="form-title">
-                    <img><i class="fas fa-user-circle"></i></img>
                     <x-text-input id="post-title" class="block mt-1 w-full" type="text" name="title" placeholder="Title" required autofocus />
                 </div>
                 <div class="content-text">
@@ -23,13 +23,14 @@
         </div> 
         <!-- Place to show the posts -->
         @foreach ($posts as $post)
-            <x-blog-template :profileName="$post->user->name">
-                <h2 id="blog-title">{{ $post->title }}</h2>
-                <div class="blog-template-text-field">
-                    <p id="blog-text">{{ $post->content }}</p>
-                </div>
-                <!-- ...other buttons... -->
-            </x-blog-template>
-        @endforeach
+    <x-blog-template 
+        :profileName="$post->user->name"
+        :title="$post->title"
+        :content="$post->content"
+        :createdAt="$post->created_at"
+        :postId="$post->id"
+    >
+    </x-blog-template>
+@endforeach
     </div>
 </x-app-layout>

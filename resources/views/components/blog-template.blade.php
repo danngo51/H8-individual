@@ -1,18 +1,38 @@
-@props(['profileName' => 'Default Name'])
+@props(['profileName' => 'Default Name', 'title', 'content', 'createdAt', 'postId'])
 
-<div class="box">
+
+
+<div class="box w-1">
     <div class="titles">
-        <div>
-            <a class="profile-pic" href="/profile"><i class="fas fa-user-circle"></i></a>
-            <h3 class="h-3" id="profileName">{{ $profileName }}</h3>
-        </div>
-        <h2 id="blog-title">{{ $slot }}</h2>
+        <h2 class="h">{{ $title }}</h2>
+        <span class="p-1">{{ $createdAt->diffForHumans() }}</span>
     </div>
-    <div class="blog-template-text-field">
-        <p id="blog-text" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 rounded-md shadow-sm">{{ $slot }}</p>
+    <div class="b-1">
+        <h3 class="h-1">{{ $profileName }}</h3>
+        <p class="p-1">{{ $content }}</p>
     </div>
-    <div>
-        <button> Like </button>
-        <button> Comment </button>
+    <div class="b-2">
+        <x-secondary-button class="button-space" type="submit">
+            {{__('Like') }}
+        </x-secondary-button>
+
+        <x-secondary-button class="button-space" type="submit" onclick="toggleCommentSection({{ $postId }})">
+            {{__('Comment') }}
+        </x-secondary-button>
+
+        <x-secondary-button class="button-space" type="submit">
+            {{__('Share') }}
+        </x-secondary-button>
     </div>
+    <!-- Hidden Comment Section -->
+    <div id="comment-section-{{ $postId }}" class="comment-section" style="display: none;"">
+        <form method="POST" action="{{ route('posts.comments.store', $postId) }}">
+            @csrf
+            <textarea name="content" class="block mt-1 w-full" rows="3" placeholder="Write a comment..."></textarea>
+            <x-primary-button class="ms-3" type="submit">
+                {{ __('Post Comment') }}
+            </x-primary-button>
+        </form>
+    </div> 
 </div>
+

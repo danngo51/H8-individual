@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,5 +36,6 @@ Route::get('/dashboard', function () {
     return view('dashboard', compact('posts'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::post('/posts/{post}/comments', [CommentController::class, 'store'])->name('posts.comments.store');
 
 require __DIR__.'/auth.php';

@@ -1,6 +1,8 @@
 .py-12 {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .box {
@@ -10,14 +12,31 @@
     border-style: solid;
     border-radius: 20px;
     padding: 10px 10px 10px 10px;
+    margin: 20px 0 20px 0;
 }
 
 .w-1 {
     width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .h {
     color: #FFF;
+    font-family: Fira Code;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+    list-style: none;
+    margin: 10px 0px 10px 10px;
+}
+
+.h-1{
+    width: 100%;
+    height: 100%;
+    color: #1B7CFF;
     font-family: Fira Code;
     font-size: 24px;
     font-style: normal;
@@ -25,7 +44,7 @@
     line-height: normal;
     text-decoration: none;
     list-style: none;
-    margin: 10px 0px 0px 10px;
+    margin: 10px 0px 10px 10px;
 }
 
 .form-title {
@@ -48,4 +67,24 @@
 }
 .block {
     resize: none;
+}
+
+.p-1{
+    color: #FFF;
+    font-family: Fira Code;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+    list-style: none;
+    margin: 10px 0px 10px 10px;
+}
+
+.b-2{
+    background-color: #1f2937;
+}
+
+.button-space{
+    margin: 10px 0px 10px 10px;
 }

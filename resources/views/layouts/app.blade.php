@@ -21,6 +21,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <link href={{ asset('css/NavBar.css') }} rel="stylesheet">
         <link href={{ asset('css/Dashboard.css') }} rel="stylesheet">
+        <script src="{{ asset('javascript/Dashboard.js') }}"> </script>
 
     </head>
     <body class="font-sans antialiased">
