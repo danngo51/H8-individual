@@ -88,3 +88,17 @@
 .button-space{
     margin: 10px 0px 10px 10px;
 }
+
+.c-1{
+    border-style: solid;
+    background-color: #1f2937;
+    border-width: 1px;
+    border-radius: 5px;
+    padding: 5px 5px 5px 5px;
+}
+
+.c-2 {
+    width: auto;
+    background-color: #1f2937;
+    color: #FFF;
+}

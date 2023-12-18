@@ -28,17 +28,18 @@
     <div id="comment-section-{{ $post->id  }}" class="comment-section" style="display: none;"">
         <form method="POST" action="{{ route('posts.comments.store', $post->id) }}">
             @csrf
-            <textarea name="content" class="block mt-1 w-full" rows="3" placeholder="Write a comment..."></textarea>
+            <x-textarea-input  name="content" class="block mt-1 w-full" rows="3" placeholder="Write a comment..."></x-textarea-input >
             <x-primary-button class="ms-3" type="submit">
                 {{ __('Post Comment') }}
             </x-primary-button>
         </form>
 
         @foreach($post->comments as $comment)
-        <!-- You can style this however you like -->
-        <div class="existing-comment">
-            <strong>{{ $comment->user->name }}</strong>
-            <p>{{ $comment->content }}</p>
+        <div class="c">
+            <div class="c-1">
+                <strong class="c-profile c-2">{{ $comment->user->name }}</strong>
+                <p class="c-content c-2">{{ $comment->content }}</p>
+            </div>
             <span>{{ $comment->created_at->diffForHumans() }}</span>
         </div>
         @endforeach
