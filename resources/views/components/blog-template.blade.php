@@ -41,6 +41,7 @@
             :profileName='$comment->user->name'
             :content='$comment->content'
             :createdAt='$comment->created_at->diffForHumans()'
+            :comment='$comment' 
         >
         </x-comment-template>
         @endforeach

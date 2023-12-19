@@ -1,4 +1,4 @@
-@props(['profileName' => 'Default Name', 'content', 'createdAt'])
+@props(['profileName' => 'Default Name', 'content', 'createdAt', 'comment'])
 
 
 <div class="c">
@@ -8,11 +8,12 @@
         <span class="c-span c-2">{{ $createdAt }}</span>
     </div>
     <div class="b-2">
-        <x-secondary-button class="button-space" type="submit">
-            {{__('Like') }}
-        </x-secondary-button>
-        <x-secondary-button class="button-space" type="submit">
-            {{__('Comment') }}
-        </x-secondary-button>
+        <form method="POST" action="{{ route('comments.like.toggle', $comment->id) }}">
+            @csrf
+            <x-secondary-button type="submit" class="button-space {{ $comment->isLikedByUser(Auth::user()) ? 'liked' : 'not-liked' }}">
+                {{ $comment->likes->count() }} {{__('Like') }}
+            </x-secondary-button>
+        </form>
+
     </div>
 </div>
