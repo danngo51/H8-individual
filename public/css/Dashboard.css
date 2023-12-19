@@ -83,6 +83,15 @@
 
 .b-2{
     background-color: #1f2937;
+    display: flex;
+    flex-direction: row;
+    margin: 0 0 0 10px;
+    border-top-color: #FFF;
+}
+
+.likes-span{
+    color: #1B7CFF;
+    font-size: 20px;
 }
 
 .button-space{
@@ -114,4 +123,12 @@
 
 .c-span {
     font-size: 10px;
+}
+
+.liked {
+    background-color: #1B7CFF; 
+}
+
+.not-liked {
+    background-color: #1f2937;
 }

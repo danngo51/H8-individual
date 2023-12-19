@@ -43,4 +43,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
+
+Route::post('/posts/{post}/toggle-like', [PostController::class, 'toggleLike'])->name('posts.like.toggle');
+
 require __DIR__.'/auth.php';
