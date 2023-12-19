@@ -89,16 +89,29 @@
     margin: 10px 0px 10px 10px;
 }
 
+.c {
+    margin: 10px 0px 20px 0px;
+}
+
 .c-1{
     border-style: solid;
-    background-color: #1f2937;
+    border-color: #374151;
+    background-color: #101827;
     border-width: 1px;
     border-radius: 5px;
+    font-family: Fira Code;
     padding: 5px 5px 5px 5px;
 }
 
 .c-2 {
     width: auto;
-    background-color: #1f2937;
     color: #FFF;
+}
+
+.c-profile {
+    color: #1B7CFF;
+}
+
+.c-span {
+    font-size: 10px;
 }

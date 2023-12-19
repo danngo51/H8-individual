@@ -1,13 +1,11 @@
+@props(['profileName' => 'Default Name', 'content', 'createdAt'])
 
 
-<div class="box w-1">
-    <div class="titles">
-        <h2 class="h">{{ $title }}</h2>
-        <span class="p-1">{{ $createdAt->diffForHumans() }}</span>
-    </div>
-    <div class="b-1">
-        <h3 class="h-1">{{ $profileName }}</h3>
-        <p class="p-1">{{ $content }}</p>
+<div class="c">
+    <div class="c-1">
+        <strong class="c-profile c-2">{{ $profileName}}</strong>
+        <p class="c-content c-2">{{ $content }}</p>
+        <span class="c-span c-2">{{ $createdAt }}</span>
     </div>
     <div class="b-2">
         <x-secondary-button class="button-space" type="submit">

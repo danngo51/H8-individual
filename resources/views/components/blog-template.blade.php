@@ -33,15 +33,13 @@
                 {{ __('Post Comment') }}
             </x-primary-button>
         </form>
-
         @foreach($post->comments as $comment)
-        <div class="c">
-            <div class="c-1">
-                <strong class="c-profile c-2">{{ $comment->user->name }}</strong>
-                <p class="c-content c-2">{{ $comment->content }}</p>
-            </div>
-            <span>{{ $comment->created_at->diffForHumans() }}</span>
-        </div>
+        <x-comment-template
+            :profileName='$comment->user->name'
+            :content='$comment->content'
+            :createdAt='$comment->created_at->diffForHumans()'
+        >
+        </x-comment-template>
         @endforeach
     </div> 
 </div>
