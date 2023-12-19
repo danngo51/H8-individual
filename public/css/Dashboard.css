@@ -85,14 +85,9 @@
     background-color: #1f2937;
     display: flex;
     flex-direction: row;
-    margin: 0 0 0 10px;
     border-top-color: #FFF;
 }
 
-.likes-span{
-    color: #1B7CFF;
-    font-size: 20px;
-}
 
 .button-space{
     margin: 10px 0px 10px 10px;

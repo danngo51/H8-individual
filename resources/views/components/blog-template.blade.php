@@ -14,9 +14,8 @@
     <div class="b-2">
         <form method="POST" action="{{ route('posts.like.toggle', $post->id) }}">
             @csrf
-            <span class="likes-span">{{ $post->likes->count() }}</span>
             <x-secondary-button type="submit" class="button-space {{ $post->isLikedByUser(Auth::user()) ? 'liked' : 'not-liked' }}">
-                {{__('Like') }}
+                {{$post->likes->count()}} {{__('Like') }}
             </x-secondary-button>
         </form>
 
