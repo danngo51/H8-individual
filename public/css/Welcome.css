@@ -1,0 +1,33 @@
+.py-12{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.h {
+    color: #FFF;
+}
+
+.fira {
+    font-family: Fira Code;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+    list-style: none;
+}
+
+.m-1 {
+    margin-bottom: 25px;
+}
+
+
+.s-1 {
+    font-size: 50px ;
+}
+
+.blue-font{
+    color: #1B7CFF;
+    margin: 25px 10px 0px 10px;
+}
