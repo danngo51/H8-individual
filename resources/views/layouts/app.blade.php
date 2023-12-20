@@ -22,6 +22,7 @@
         <link href={{ asset('css/NavBar.css') }} rel="stylesheet">
         <link href={{ asset('css/Dashboard.css') }} rel="stylesheet">
         <script src="{{ asset('javascript/Dashboard.js') }}"> </script>
+        <script src="{{ asset('javascript/Profile.js') }}"> </script>
 
     </head>
     <body class="font-sans antialiased">

@@ -21,4 +21,15 @@ class Comment extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function likes()
+    {
+        return $this->belongsToMany(User::class, 'comment_user');
+    }
+
+    public function isLikedByUser(?User $user)
+    {
+        return $user ? $this->likes()->where('user_id', $user->id)->exists() : false;
+    }
+
 }

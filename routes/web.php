@@ -26,9 +26,10 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile/settings', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile/settings', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile/settings', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile', [ProfileController::class, 'profile'])->name('profile.profile');
     Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 });
 
@@ -42,5 +43,13 @@ Route::post('/posts/{post}/comments', [CommentController::class, 'store'])->name
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
+
+
+Route::post('/posts/{post}/toggle-like', [PostController::class, 'toggleLike'])->name('posts.like.toggle');
+
+Route::post('/comments/{comment}/toggle-like', [CommentController::class, 'toggleLike'])
+    ->name('comments.like.toggle');
+
+Route::get('/profile/comments', [ProfileController::class, 'profile'])->name('profile.comments');
 
 require __DIR__.'/auth.php';

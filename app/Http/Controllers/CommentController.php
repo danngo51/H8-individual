@@ -23,5 +23,16 @@ class CommentController extends Controller
 
         return back()->with('status', 'Comment posted successfully!');
     }
+
+    public function toggleLike(Comment $comment)
+    {
+        if ($comment->isLikedByUser(auth()->user())) {
+            $comment->likes()->detach(auth()->id());
+        } else {
+            $comment->likes()->attach(auth()->id());
+        }
+
+        return back();
+    }
 }
 

@@ -21,7 +21,6 @@
                 </div>
             </form>
         </div> 
-        <!-- Place to show the posts -->
         @foreach ($posts as $post)
             <x-blog-template 
                 :profileName="$post->user->name"

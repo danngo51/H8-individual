@@ -21,6 +21,15 @@ class ProfileController extends Controller
         ]);
     }
 
+    public function profile()
+    {
+        $user = auth()->user();
+        $posts = $user->posts()->with('comments')->get();
+        $comments = $user->comments()->with('post')->get();
+        return view('profile.profile', compact('user', 'posts', 'comments'));
+    }
+
+
     /**
      * Update the user's profile information.
      */
@@ -57,4 +66,5 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
 }

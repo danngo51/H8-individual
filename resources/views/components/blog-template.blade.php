@@ -5,16 +5,19 @@
 <div class="box w-1">
     <div class="titles">
         <h2 class="h">{{ $post->title }}</h2>
-        <span class="p-1">{{ $post->created_at->diffForHumans() }}</span>
     </div>
     <div class="b-1">
         <h3 class="h-1">{{ $profileName }}</h3>
         <p class="p-1">{{ $post->content }}</p>
+        <span class="p-2">{{ $post->created_at->diffForHumans() }}</span>
     </div>
     <div class="b-2">
-        <x-secondary-button class="button-space" type="submit">
-            {{__('Like') }}
-        </x-secondary-button>
+        <form method="POST" action="{{ route('posts.like.toggle', $post->id) }}">
+            @csrf
+            <x-secondary-button type="submit" class="button-space {{ $post->isLikedByUser(Auth::user()) ? 'liked' : 'not-liked' }}">
+                {{$post->likes->count()}} {{__('Like') }}
+            </x-secondary-button>
+        </form>
 
         <x-secondary-button class="button-space" type="button" onclick="toggleCommentSection({{ $post->id }})">
             {{ __('Comment') }}
@@ -33,15 +36,14 @@
                 {{ __('Post Comment') }}
             </x-primary-button>
         </form>
-
         @foreach($post->comments as $comment)
-        <div class="c">
-            <div class="c-1">
-                <strong class="c-profile c-2">{{ $comment->user->name }}</strong>
-                <p class="c-content c-2">{{ $comment->content }}</p>
-            </div>
-            <span>{{ $comment->created_at->diffForHumans() }}</span>
-        </div>
+        <x-comment-template
+            :profileName='$comment->user->name'
+            :content='$comment->content'
+            :createdAt='$comment->created_at->diffForHumans()'
+            :comment='$comment' 
+        >
+        </x-comment-template>
         @endforeach
     </div> 
 </div>

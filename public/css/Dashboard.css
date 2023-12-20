@@ -10,10 +10,17 @@
     background-color: #1f2937;
     border-color: #1f2937;
     border-style: solid;
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 10px 10px 10px 10px;
     margin: 20px 0 20px 0;
 }
+
+.w {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 .w-1 {
     width: 50%;
@@ -38,7 +45,7 @@
     height: 100%;
     color: #1B7CFF;
     font-family: Fira Code;
-    font-size: 24px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -72,33 +79,70 @@
 .p-1{
     color: #FFF;
     font-family: Fira Code;
-    font-size: 20px;
+    font-size: 24px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     text-decoration: none;
     list-style: none;
-    margin: 10px 0px 10px 10px;
+    margin: 10px 5px 10px 5px;
+}
+
+.p-2 {
+    font-size: 12px;
+    color: #FFF;
+    font-family: Fira Code;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+    list-style: none;
+    margin: 10px 5px 10px 5px;
 }
 
 .b-2{
     background-color: #1f2937;
+    display: flex;
+    flex-direction: row;
+    border-top-color: #FFF;
 }
 
+
 .button-space{
-    margin: 10px 0px 10px 10px;
+    margin: 10px 5px 10px 5px;
+}
+
+.c {
+    margin: 10px 0px 20px 0px;
 }
 
 .c-1{
     border-style: solid;
-    background-color: #1f2937;
+    border-color: #374151;
+    background-color: #101827;
     border-width: 1px;
     border-radius: 5px;
+    font-family: Fira Code;
     padding: 5px 5px 5px 5px;
 }
 
 .c-2 {
     width: auto;
-    background-color: #1f2937;
     color: #FFF;
+}
+
+.c-profile {
+    color: #1B7CFF;
+}
+
+.c-span {
+    font-size: 10px;
+}
+
+.liked {
+    background-color: #1B7CFF; 
+}
+
+.not-liked {
+    background-color: #1f2937;
 }
