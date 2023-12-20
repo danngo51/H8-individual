@@ -52,4 +52,8 @@ Route::post('/comments/{comment}/toggle-like', [CommentController::class, 'toggl
 
 Route::get('/profile/comments', [ProfileController::class, 'profile'])->name('profile.comments');
 
+Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy')->middleware('auth');
+
+Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy')->middleware('auth');
+
 require __DIR__.'/auth.php';

@@ -26,6 +26,17 @@
         <x-secondary-button class="button-space" type="submit">
             {{__('Share') }}
         </x-secondary-button>
+
+        @if (auth()->check() && auth()->id() === $post->user_id)
+            <form method="POST" action="{{ route('posts.destroy', $post->id) }}" id="delete-form-{{ $post->id }}">
+                @csrf
+                @method('DELETE')
+                <x-secondary-button class="button-space red" type="button" onclick="deletePost(event, 'delete-form-{{ $post->id }}')">
+                    {{ __('Delete') }}
+                </x-secondary-button>
+            </form>
+        @endif
+
     </div>
     <!-- Hidden Comment Section -->
     <div id="comment-section-{{ $post->id  }}" class="comment-section" style="display: none;"">
