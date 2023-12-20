@@ -50,4 +50,6 @@ Route::post('/posts/{post}/toggle-like', [PostController::class, 'toggleLike'])-
 Route::post('/comments/{comment}/toggle-like', [CommentController::class, 'toggleLike'])
     ->name('comments.like.toggle');
 
+Route::get('/profile/comments', [ProfileController::class, 'profile'])->name('profile.comments');
+
 require __DIR__.'/auth.php';

@@ -5,11 +5,11 @@
 <div class="box w-1">
     <div class="titles">
         <h2 class="h">{{ $post->title }}</h2>
-        <span class="p-1">{{ $post->created_at->diffForHumans() }}</span>
     </div>
     <div class="b-1">
         <h3 class="h-1">{{ $profileName }}</h3>
         <p class="p-1">{{ $post->content }}</p>
+        <span class="p-2">{{ $post->created_at->diffForHumans() }}</span>
     </div>
     <div class="b-2">
         <form method="POST" action="{{ route('posts.like.toggle', $post->id) }}">
