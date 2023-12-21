@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="container">
         <h1>Dashboard</h1>
-        @forelse (auth()->user()->subscribedSubpages as $subpage)
+        @forelse (auth()->user()->subscriptions as $subpage)
             <div class="card">
                 <div class="card-header">
                     <a href="{{ route('subpages.show', $subpage) }}">{{ $subpage->name }}</a>
