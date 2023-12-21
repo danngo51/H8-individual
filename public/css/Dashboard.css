@@ -147,6 +147,16 @@
     background-color: #1f2937;
 }
 
-.red {
-    background-color: #dc2625;
+.blue-font{
+    color: #1B7CFF;
+    margin: 25px 10px 0px 10px;
+}
+
+.fira {
+    font-family: Fira Code;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+    list-style: none;
 }
