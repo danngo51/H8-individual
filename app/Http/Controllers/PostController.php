@@ -4,12 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Subpage;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Like;
 
 class PostController extends Controller
 {
-    public function store(Request $request)
+     // Show a form for creating a new post in a subpage
+     public function create(Subpage $subpage)
+     {
+         return view('posts.create', compact('subpage'));
+     }
+ 
+    public function store(Request $request, Subpage $subpage)
     {
         $request->validate([
             'title' => 'required|max:255',
@@ -20,9 +27,10 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->content = $request->content;
         $post->user_id = Auth::id();
+        $post->subpage_id = $subpage->id;
         $post->save();
 
-        return back()->with('status', 'Post created successfully!');
+        return redirect()->route('subpages.show', $subpage);
     }
 
     public function like(Post $post)

@@ -10,26 +10,28 @@ class Subpage extends Model
     use HasFactory;
 
      // The table associated with the model.
-     protected $table = 'posts';
+     protected $table = 'subpages';
 
      // The attributes that are mass assignable.
      protected $fillable = [
          'title',
          'description',
-         'user_id', // Make sure this is the name of the foreign key column for the user.
+         'owner_id'
      ];
  
      /**
       * The user who authored the post.
       */
-     public function user()
-     {
-         return $this->belongsTo(User::class);
-     }
-     
-     public function comments()
-     {
-         return $this->hasMany(Comment::class);
-     }
+    public function owner() {
+        return $this->belongsTo(User::class, 'owner_id');
+    }
+
+    public function posts() {
+        return $this->hasMany(Post::class);
+    }
+
+    public function subscribers() {
+        return $this->belongsToMany(User::class, 'subscriptions');
+    }
 
 }

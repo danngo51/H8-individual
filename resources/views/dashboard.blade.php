@@ -1,35 +1,25 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="box w-1">
-            <form method="POST" action="{{ route('posts.store') }}">
-                @csrf <!-- CSRF token for security -->
-                <h2 class="h"> Create a H8 post </h2>
-                <div class="form-title">
-                    <x-text-input id="post-title" class="block mt-1 w-full" type="text" name="title" placeholder="Title" required autofocus />
+<x-layout>
+    <div class="container">
+        <h1>Dashboard</h1>
+        @forelse (auth()->user()->subscribedSubpages as $subpage)
+            <div class="card">
+                <div class="card-header">
+                    <a href="{{ route('subpages.show', $subpage) }}">{{ $subpage->name }}</a>
                 </div>
-                <div class="content-text">
-                    <x-textarea-input id="post-content" class="block mt-1 w-full" name="content" placeholder="Write your blog post here..." rows="6" required></x-textarea-input>
-                    <x-primary-button class="ms-3" type="submit">
-                        {{ __('Post') }}
-                    </x-primary-button>
+                <div class="card-body">
+                    @forelse ($subpage->posts as $post)
+                        <article class="mb-4">
+                            <h3>{{ $post->title }}</h3>
+                            <p>{{ Str::limit($post->content, 150) }}</p>
+                            <a href="{{ route('subpages.posts.show', [$subpage, $post]) }}">Read more</a>
+                        </article>
+                    @empty
+                        <p>No posts yet.</p>
+                    @endforelse
                 </div>
-            </form>
-        </div> 
-        @foreach ($posts as $post)
-            <x-blog-template 
-                :profileName="$post->user->name"
-                :title="$post->title"
-                :content="$post->content"
-                :createdAt="$post->created_at"
-                :post="$post"
-            >
-            </x-blog-template>
-        @endforeach
+            </div>
+        @empty
+            <p>You are not subscribed to any subpages.</p>
+        @endforelse
     </div>
-</x-app-layout>
+</x-layout>

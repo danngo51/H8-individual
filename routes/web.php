@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SubpageController;
+use App\Http\Controllers\SubscriptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,5 +53,13 @@ Route::post('/comments/{comment}/toggle-like', [CommentController::class, 'toggl
     ->name('comments.like.toggle');
 
 Route::get('/profile/comments', [ProfileController::class, 'profile'])->name('profile.comments');
+
+
+Route::resource('subpages', SubpageController::class);
+Route::resource('posts', PostController::class);
+
+Route::post('/subpages/{subpage}/subscribe', [SubscriptionController::class, 'subscribe'])->name('subpages.subscribe');
+Route::delete('/subpages/{subpage}/unsubscribe', [SubscriptionController::class, 'unsubscribe'])->name('subpages.unsubscribe');
+
 
 require __DIR__.'/auth.php';
