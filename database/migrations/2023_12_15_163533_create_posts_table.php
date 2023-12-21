@@ -14,6 +14,7 @@ class CreatePostsTable extends Migration
             $table->foreignId('subpage_id')->constrained('subpages')->onDelete('cascade');
             $table->string('title');
             $table->text('content');
+            $table->string('slug')->after('title');
             $table->timestamps();
         });
     }

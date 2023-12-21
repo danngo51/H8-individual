@@ -45,4 +45,9 @@ class Post extends Model
     public function subpage() {
         return $this->belongsTo(Subpage::class);
     }
+
+    public function getRouteKeyName()
+{
+    return 'slug';
+}
 }

@@ -34,4 +34,9 @@ class Subpage extends Model
         return $this->belongsToMany(User::class, 'subscriptions');
     }
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
 }

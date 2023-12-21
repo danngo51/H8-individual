@@ -32,7 +32,7 @@
 
         <!-- Collapsible Create Post Form -->
         <div x-show="showCreatePostForm" x-cloak>
-            <form method="POST" action="{{ route('subpages.posts.store', $subpage) }}" class="mt-4">
+            <form method="POST" action="{{ route('subpages.posts.store', $subpage->slug) }}" class="mt-4">
             @csrf
                 <div>
                     @csrf <!-- CSRF token for security -->
@@ -50,16 +50,17 @@
             </form>
         </div>
     </div>
-    <div class="py-12 box w-1">
+    <div class="">
         <!-- Posts Section -->
         <div class="posts">
             @forelse ($subpage->posts as $post)
-            <x-blog-template
+            <x-blog-template 
                 :profileName="$post->user->name"
                 :title="$post->title"
                 :content="$post->content"
                 :createdAt="$post->created_at"
                 :post="$post"
+                :slug="$post->subpage->slug"
             >
             </x-blog-template>
             @empty
