@@ -1,4 +1,4 @@
-<x-layout>
+<x-app-layout>
     <div class="container">
         <h1>{{ $subpage->name }}</h1>
         <p>{{ $subpage->description }}</p>
@@ -37,4 +37,4 @@
             @endforelse
         </div>
     </div>
-</x-layout>
+</x-app-layout>

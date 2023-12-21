@@ -1,4 +1,4 @@
-<x-layout>
+<x-app-layout>
     <div class="container">
         <h1>Dashboard</h1>
         @forelse (auth()->user()->subscribedSubpages as $subpage)
@@ -22,4 +22,4 @@
             <p>You are not subscribed to any subpages.</p>
         @endforelse
     </div>
-</x-layout>
+</x-app-layout>

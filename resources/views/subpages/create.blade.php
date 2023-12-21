@@ -1,4 +1,4 @@
-<x-layout>
+<x-app-layout>
     <div class="container">
         <h1>Create a New Subpage</h1>
         <form action="{{ route('subpages.store') }}" method="POST">
@@ -16,4 +16,4 @@
             <button type="submit" class="btn btn-primary">Create</button>
         </form>
     </div>
-</x-layout>
+</x-app-layout>
