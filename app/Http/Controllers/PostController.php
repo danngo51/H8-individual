@@ -47,19 +47,30 @@ class PostController extends Controller
     }
 
     public function toggleLike(Post $post)
-{
-    
-    $like = $post->likes()->where('user_id', Auth::id())->first();
+    {
+        
+        $like = $post->likes()->where('user_id', Auth::id())->first();
 
-    if ($like) {
-        $like->delete();
-    } else {
-        $post->likes()->create(['user_id' => Auth::id()]);
+        if ($like) {
+            $like->delete();
+        } else {
+            $post->likes()->create(['user_id' => Auth::id()]);
+        }
+
+        return back();
     }
 
-    return back();
-}
+    public function destroy(Post $post)
+    {
+        
+        if ($post->user_id !== Auth::id()) {
+            abort(403, 'Unauthorized action.');
+        }
 
+        $post->delete();
+
+        return back()->with('status', 'Post deleted successfully.');
+    }
 
 
 }
