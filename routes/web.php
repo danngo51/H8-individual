@@ -55,11 +55,17 @@ Route::post('/comments/{comment}/toggle-like', [CommentController::class, 'toggl
 Route::get('/profile/comments', [ProfileController::class, 'profile'])->name('profile.comments');
 
 
+// Subpage Routes
 Route::resource('subpages', SubpageController::class);
-Route::resource('posts', PostController::class);
 
-Route::post('/subpages/{subpage}/subscribe', [SubscriptionController::class, 'subscribe'])->name('subpages.subscribe');
-Route::delete('/subpages/{subpage}/unsubscribe', [SubscriptionController::class, 'unsubscribe'])->name('subpages.unsubscribe');
+// Subscription Routes
+Route::post('/subpages/{subpage}/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
+Route::delete('/subpages/{subpage}/unsubscribe', [SubscriptionController::class, 'unsubscribe'])->name('unsubscribe');
+
+// Nested Post Routes
+Route::get('/subpages/{subpage}/posts/create', [PostController::class, 'create'])->name('subpages.posts.create');
+Route::post('/subpages/{subpage}/posts', [PostController::class, 'store'])->name('subpages.posts.store');
+Route::get('/subpages/{subpage}/posts/{post}', [PostController::class, 'show'])->name('subpages.posts.show');
 
 
 require __DIR__.'/auth.php';
