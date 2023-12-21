@@ -54,7 +54,6 @@ Route::post('/comments/{comment}/toggle-like', [CommentController::class, 'toggl
 
 Route::get('/profile/comments', [ProfileController::class, 'profile'])->name('profile.comments');
 
-<<<<<<< HEAD
 // Middleware for all the routes
 Route::middleware(['auth'])->group(function () {
     // Subpage Routes
@@ -74,10 +73,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/subpages/{slug}/posts/{postSlug}', [PostController::class, 'show'])->name('subpages.posts.show');
 });
 
-=======
 Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy')->middleware('auth');
 
 Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy')->middleware('auth');
->>>>>>> html_setup
 
 require __DIR__.'/auth.php';
