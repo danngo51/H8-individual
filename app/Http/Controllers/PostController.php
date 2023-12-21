@@ -7,6 +7,8 @@ use App\Models\Post;
 use App\Models\Subpage;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Like;
+use Illuminate\Support\Str;
+
 
 class PostController extends Controller
 {
@@ -28,9 +30,10 @@ class PostController extends Controller
         $post->content = $request->content;
         $post->user_id = Auth::id();
         $post->subpage_id = $subpage->id;
+        $post->slug = Str::slug($request->name);
         $post->save();
 
-        return redirect()->route('subpages.show', $subpage);
+        return redirect()->route('subpages.show', $subpage->slug);
     }
 
     public function like(Post $post)

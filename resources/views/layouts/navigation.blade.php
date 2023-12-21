@@ -15,7 +15,14 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('subpages.create')" :active="request()->routeIs('subpages.create')">
+                        {{ __('Create Subpage') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('subpages.subscribed')" :active="request()->routeIs('subpages.subscribed')">
+                        {{ __('Subscribed Subpages') }}
+                    </x-nav-link>
                 </div>
+                
             </div>
 
             <!-- Settings Dropdown -->

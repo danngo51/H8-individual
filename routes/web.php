@@ -54,18 +54,24 @@ Route::post('/comments/{comment}/toggle-like', [CommentController::class, 'toggl
 
 Route::get('/profile/comments', [ProfileController::class, 'profile'])->name('profile.comments');
 
+// Middleware for all the routes
+Route::middleware(['auth'])->group(function () {
+    // Subpage Routes
+    Route::resource('subpages', SubpageController::class);
+    Route::get('/subpages/create', [SubpageController::class, 'create'])->name('subpages.create');
+    Route::get('/subpages', [SubpageController::class, 'subscribed'])->name('subpages.subscribed')->middleware('auth');
+    Route::get('/subpages/{slug}', [SubpageController::class, 'show'])->name('subpages.show');
 
-// Subpage Routes
-Route::resource('subpages', SubpageController::class);
 
-// Subscription Routes
-Route::post('/subpages/{subpage}/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
-Route::delete('/subpages/{subpage}/unsubscribe', [SubscriptionController::class, 'unsubscribe'])->name('unsubscribe');
+    // Subscription Routes
+    Route::post('/subpages/{slug}/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
+    Route::delete('/subpages/{slug}/unsubscribe', [SubscriptionController::class, 'unsubscribe'])->name('unsubscribe');
 
-// Nested Post Routes
-Route::get('/subpages/{subpage}/posts/create', [PostController::class, 'create'])->name('subpages.posts.create');
-Route::post('/subpages/{subpage}/posts', [PostController::class, 'store'])->name('subpages.posts.store');
-Route::get('/subpages/{subpage}/posts/{post}', [PostController::class, 'show'])->name('subpages.posts.show');
+    // Nested Post Routes for a subpage (using slug)
+    Route::get('/subpages/{slug}/posts/create', [PostController::class, 'create'])->name('subpages.posts.create');
+    Route::post('/subpages/{slug}/posts', [PostController::class, 'store'])->name('subpages.posts.store');
+    Route::get('/subpages/{slug}/posts/{postSlug}', [PostController::class, 'show'])->name('subpages.posts.show');
+});
 
 
 require __DIR__.'/auth.php';
