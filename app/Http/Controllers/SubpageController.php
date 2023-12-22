@@ -65,7 +65,7 @@ class SubpageController extends Controller
         // Subscribe the user
         auth()->user()->subscriptions()->attach($subpage->id);
         
-        return redirect()->route('showSubpage', $subpage->slug);
+        return redirect()->route('subpages.showSubpage', $subpage->slug);
     }
 
     /*public function destroy($slug, $postSlug)

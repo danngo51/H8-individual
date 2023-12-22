@@ -77,7 +77,9 @@
             >
             </x-blog-template>
             @empty
-                <p>No posts yet.</p>
+                <div class="p-1">
+                    No posts yet.
+                </div>
             @endforelse
         </div>
     </div>
