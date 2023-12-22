@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="py-12">
+    <div>
         {{-- ... header and other content ... --}}
 
         <div class="py-12">

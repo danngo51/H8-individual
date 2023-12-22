@@ -61,7 +61,7 @@
     
 
     
-    <div class="py-12">
+    <div">
         <!-- Posts Section -->
         <div class="py-12">
             @forelse ($subpage->posts as $post)

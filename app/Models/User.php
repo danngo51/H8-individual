@@ -71,8 +71,9 @@ class User extends Authenticatable
 
     public function subscriptions()
     {
-        return $this->belongtsToMany(Subpage::class, 'subscriptions', 'user_id', 'subpage_id');
+        return $this->belongsToMany(Subpage::class, 'subscriptions', 'user_id', 'subpage_id');
     }
+
     
     public function ownedSubpages() {
         return $this->hasMany(Subpage::class, 'owner_id');
