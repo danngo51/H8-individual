@@ -6,7 +6,8 @@
         <!-- Subscription Button -->
         @auth
             @if(auth()->user()->isSubscribedTo($subpage))
-                <form action="{{ route('unsubscribe', $subpage) }}" method="POST">
+                <!-- 'slug' is the one in the route and gets its value from '$subpage->slug'.-->
+                <form action="{{ route('unsubscribe', [ 'slug' => $subpage->slug ]) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <x-primary-button class="ms-3" type="submit">
@@ -14,7 +15,8 @@
                     </x-primary-button>
                 </form>
             @else
-                <form action="{{ route('subscribe', $subpage) }}" method="POST">
+                <!-- 'slug' is the one in the route and gets its value from '$subpage->slug'.-->
+                <form action="{{ route('subscribe', [ 'slug' => $subpage->slug ]) }}" method="POST">
                     @csrf
                     <x-primary-button class="ms-3" type="submit">
                         {{ __('Subscribe') }}

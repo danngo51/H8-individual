@@ -9,20 +9,22 @@ use Illuminate\Support\Facades\Auth;
 class SubscriptionController extends Controller
 {
   // Handle a user subscribing to a subpage
-  public function subscribe(Subpage $subpage)
+  public function subscribe($slug)
   {
-      $user = auth()->user();
-      $user->subscriptions()->attach($subpage);
+    $subpage = Subpage::where('slug', $slug)->firstOrFail();
+    $user = auth()->user();
+    $user->subscriptions()->attach($subpage);
 
-      return back();
+    return back();
   }
 
   // Handle a user unsubscribing from a subpage
-  public function unsubscribe(Subpage $subpage)
+  public function unsubscribe($slug)
   {
-      $user = auth()->user();
-      $user->subscriptions()->detach($subpage);
+    $subpage = Subpage::where('slug', $slug)->firstOrFail();
+    $user = auth()->user();
+    $user->subscriptions()->detach($subpage);
 
-      return back();
+    return back();
   }
 }
