@@ -61,9 +61,8 @@ Route::middleware(['auth'])->group(function () {
 
 
     // Nested Post Routes for a subpage (using slug)
-    Route::get('/subpages/{slug}/posts/create', [PostController::class, 'create'])->name('subpages.posts.create'); // not used
     Route::post('/subpages/{slug}/posts', [PostController::class, 'store'])->name('subpages.posts.store'); // create and store a new post inside subpage with unique slug within the subpage - working
-    Route::get('/subpages/{slug}/posts/{postSlug}', [PostController::class, 'show'])->name('subpages.posts.show'); // not used
+    // Route::get('/subpages/{slug}/posts/{postSlug}', [PostController::class, 'show'])->name('subpages.posts.show'); // not used
     Route::delete('/subpages/{slug}/posts/{postSlug}', [PostController::class, 'destroy'])->name('subpages.posts.destroy'); // outcommented in blog template
 
     // Toggle like for a post
@@ -76,7 +75,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/subpage/{slug}/post/{postSlug}/comment', [CommentController::class, 'store'])->name('posts.comments.store'); // comment a post - working
 
     // Toggle like for a comment
-    Route::post('/comments/{comment}/toggle-like', [CommentController::class, 'toggleLike'])->name('comments.like.toggle'); // toggle like for a comment - 
+    Route::post('/{comment}/toggleLike', [CommentController::class, 'toggleLike'])->name('comments.like.toggle'); // toggle like for a comment - 
 
 });
 
