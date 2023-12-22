@@ -35,6 +35,17 @@
         </div>
         @endauth
 
+        @if (auth()->check() && auth()->id() === $post->user_id)
+        <!-- Form for deleting a post -->
+        <form method="POST" action="{{ route('subpages.posts.destroy', [ 'slug' => $subpage_slug, 'postSlug' => $post_slug]) }}" >
+            @csrf
+            @method('DELETE')
+            <x-secondary-button class="button-space red" type="submit">
+                {{ __('Delete') }}
+            </x-secondary-button>
+        </form>
+    @endif
+
         <div >
             <!-- This div will show/hide based on the Alpine.js state -->
             <div x-show="showCreatePostForm" x-cloak>

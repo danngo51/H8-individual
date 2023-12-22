@@ -49,5 +49,23 @@ class SubpageController extends Controller
         return redirect()->route('subpages.show', $subpage->slug);
     }
 
+    public function destroy($slug, $postSlug)
+    {
+         // First, get the correct subpage using its slug
+        // - this is necessary because the post_slug only is unique for the subpage
+        $subpage = Subpage::where('slug', $slug)->firstOrFail();
+
+        // Then, get the post by its slug and make sure it belongs to the correct subpage
+        $post = Post::where('slug', $postSlug)->where('subpage_id', $subpage->id)->firstOrFail();
+    
+        if ($post->user_id !== auth()->id()) {
+            abort(403, 'Unauthorized action.');
+        }
+    
+        $post->delete();
+    
+        return back()->with('status', 'Post deleted successfully.');
+    }
+
    
 }

@@ -54,6 +54,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/subpages/create', [SubpageController::class, 'create'])->name('subpages.create'); // show create form for subpages - working
     Route::get('/subpages/{slug}', [SubpageController::class, 'show'])->name('subpages.show'); // show a specific subpage with slug - working
     Route::post('/subpages', [SubpageController::class, 'store'])->name('subpages.store'); // create and store a subpage from the create form - working
+    Route::delete('/subpages/{slug}/subpageDelete', [SubpageController::class, 'destroy'])->name('subpages.delete'); // show a specific subpage with slug - working
 
     // Subscription Routes
     Route::post('/subpages/{slug}/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe'); // subscribe to a page
@@ -69,7 +70,7 @@ Route::middleware(['auth'])->group(function () {
 
 
     // Delete a post
-    Route::delete('/subpages/{slug}/postDelete/{postSlug}', [PostController::class, 'destroy'])->name('subpages.posts.destroy');
+    Route::delete('/subpages/{slug}/postDelete/{postSlug}', [PostController::class, 'destroy'])->name('subpages.posts.destroy'); // delete a post - working
 
     // Store a comment
     Route::post('/subpage/{slug}/post/{postSlug}/comment', [CommentController::class, 'store'])->name('posts.comments.store'); // comment a post - working
