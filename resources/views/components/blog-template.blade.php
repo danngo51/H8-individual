@@ -46,12 +46,12 @@
         
         @if (auth()->check() && auth()->id() === $post->user_id)
             <!-- Form for deleting a post -->
-            <form method="POST" action="{{ route('subpages.posts.destroy', [ 'slug' => $subpage_slug, 'postSlug' => $post_slug]) }}" >
+            <form method="POST" id="delete-form-{{ $post->id }}" action="{{ route('subpages.posts.destroy', ['slug' => $subpage_slug, 'postSlug' => $post->slug]) }}">
                 @csrf
                 @method('DELETE')
-                <x-secondary-button class="button-space red" type="submit">
+                <x-danger-button class="button-space red end" onclick="deletePost(event, 'delete-form-{{ $post->id }}')">
                     {{ __('Delete') }}
-                </x-secondary-button>
+                </x-danger-button>
             </form>
         @endif
         

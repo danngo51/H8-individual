@@ -160,3 +160,8 @@
     text-decoration: none;
     list-style: none;
 }
+
+.end {
+    display: flex;
+    justify-content: end;
+}

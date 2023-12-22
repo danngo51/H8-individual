@@ -29,16 +29,24 @@
        </div>
 
        <div class="w" id="user-posts" style="display: none;">
-            @foreach ($posts as $post)
-                <x-blog-template 
-                    :profileName="$post->user->name"
-                    :title="$post->title"
-                    :content="$post->content"
-                    :createdAt="$post->created_at"
-                    :post="$post"
-                >
-                </x-blog-template>
-            @endforeach
+        @forelse ($posts as $post)
+            <x-blog-template
+                :profileName="$post->user->name"
+                :title="$post->title"
+                :content="$post->content"
+                :createdAt="$post->created_at"
+                :post="$post"
+                :subpageName="$post->subpage->name"
+                :showSubpageName="true" {{-- Toggles subpagename to show --}}
+                :subpage_slug="$post->subpage->slug" {{-- Correct subpage slug for each post --}}
+                :post_slug="$post->slug"
+            >
+            </x-blog-template>
+        @empty
+            <div class="no-post">
+                <p>You have not subscribed to any subpages or there are no posts yet.</p>
+            </div>
+        @endforelse
         </div>
         <div class="w-1" id="user-comments" style="display: none;">
             @foreach ($comments as $comment)
