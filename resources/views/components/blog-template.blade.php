@@ -5,7 +5,7 @@
     'content', 
     'createdAt', 
     'post', 
-    'showSubpageName' => false,
+    'showSubpageName' => false, // Default to false since it might not be always provided.
     'subpageName' => null, // Default to null since it might not be always provided.
     'subpage_slug', // Add this to accept the subpage slug
     'post_slug'
@@ -14,8 +14,8 @@
 
 <div class="box w-1">
     <div class="titles">
-        <h2 class="h">{{ $title }}</h2>
         <h3 class="h-1">{{ $subpageName }}</h3> <!-- Subpage name included -->
+        <h2 class="h">{{ $title }}</h2>
     </div>
     <div class="b-1">
         <h3 class="h-1">{{ $profileName }}</h3>

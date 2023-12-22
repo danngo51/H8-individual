@@ -50,9 +50,9 @@
             </form>
         </div>
     </div>
-    <div class="py-12 box w-1">
+    <div class="container">
         <!-- Posts Section -->
-        <div class="posts">
+        <div class="py-12">
             @forelse ($subpage->posts as $post)
             <!-- Passing values into the child-template -->
             <x-blog-template

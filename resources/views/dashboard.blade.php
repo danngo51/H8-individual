@@ -11,7 +11,7 @@
                     :createdAt="$post->created_at"
                     :post="$post"
                     :subpageName="$post->subpage->name"
-                    :showSubpageName="true"
+                    :showSubpageName="true" {{-- Toggles subpagename to show --}}
                     :subpage_slug="$post->subpage->slug" {{-- Correct subpage slug for each post --}}
                     :post_slug="$post->slug"
                 >
