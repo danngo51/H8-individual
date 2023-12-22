@@ -14,8 +14,9 @@
                 <x-primary-button class="ml-2">
                     {{ __('Search') }}
                 </x-primary-button>
+                <div class="flex-grow"></div> <!-- Invisible spacer -->
             </form>
-            <div class="flex-grow"></div> <!-- Invisible spacer -->
+            
         </div>
     </x-slot>
    
@@ -29,7 +30,9 @@
                 <a class="blue-font fira" href="{{ route('subpages.showSubpage', $subpage->slug) }}">View Subpage</a>
             </div>
             @empty
-                <p>There are no subpages available.</p>
+                <div class="p-1">
+                    There are no subpages available.
+                </div>
             @endforelse
         </div>
     </div>
