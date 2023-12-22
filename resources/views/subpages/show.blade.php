@@ -54,12 +54,15 @@
         <!-- Posts Section -->
         <div class="posts">
             @forelse ($subpage->posts as $post)
+            <!-- Passing values into the child-template -->
             <x-blog-template
                 :profileName="$post->user->name"
                 :title="$post->title"
                 :content="$post->content"
                 :createdAt="$post->created_at"
                 :post="$post"
+                :subpage_slug="$subpage->slug"
+                :post_slug="$post->slug"
             >
             </x-blog-template>
             @empty

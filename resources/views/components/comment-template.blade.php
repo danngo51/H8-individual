@@ -14,6 +14,7 @@
                 {{ $comment->likes->count() }} {{__('Like') }}
             </x-secondary-button>
 
+            {{--
             @if (auth()->check() && auth()->id() === $comment->user_id)
                 <form method="POST" action="{{ route('comments.destroy', $comment->id) }}" id="delete-comment-form-{{ $comment->id }}">
                     @csrf
@@ -23,6 +24,8 @@
                     </x-secondary-button>
                 </form>
             @endif
+            --}}
+            
         </form>
 
     </div>

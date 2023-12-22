@@ -47,18 +47,28 @@ class PostController extends Controller
         return redirect()->route('subpages.show', $subpage->slug);
     }
 
-    public function toggleLike($slug, Post $post)
+
+    public function toggleLike($slug, $post_slug)
     {
+        // First, get the correct subpage using its slug
+        // - this is necessary because the post_slug only is unique for the subpage
+        $subpage = Subpage::where('slug', $slug)->firstOrFail();
+
+        // Then, get the post by its slug and make sure it belongs to the correct subpage
+        $post = Post::where('slug', $post_slug)->where('subpage_id', $subpage->id)->firstOrFail();
+
+        // Now toggle the like for the correct post
         $like = $post->likes()->where('user_id', auth()->id())->first();
-    
+
         if ($like) {
             $like->delete();
         } else {
             $post->likes()->create(['user_id' => auth()->id()]);
         }
-    
+
         return back();
     }
+
     
     public function destroy($slug, $postSlug)
     {
