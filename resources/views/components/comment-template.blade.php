@@ -13,19 +13,18 @@
             <x-secondary-button type="submit" class="button-space {{ $comment->isLikedByUser(Auth::user()) ? 'liked' : 'not-liked' }}">
                 {{ $comment->likes->count() }} {{__('Like') }}
             </x-secondary-button>
-
             
-            @if (auth()->check() && auth()->id() === $comment->user_id)
+        </form>
+
+        @if (auth()->check() && auth()->id() === $comment->user_id)
                 <form method="POST" action="{{ route('comments.destroy', $comment->id) }}" id="delete-comment-form-{{ $comment->id }}">
                     @csrf
                     @method('DELETE')
-                    <x-danger-button class="button-space red" type="submit">
+                    <x-danger-button class="button-space red" type="submit" onclick="deleteComment(event, 'delete-comment-form-{{ $comment->id }}')">
                         {{ __('Delete') }}
                     </x-danger-button>
                 </form>
             @endif
-            
-        </form>
 
     </div>
 </div>
