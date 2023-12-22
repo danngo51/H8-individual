@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -27,4 +28,16 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    public function render($request, Throwable $exception)
+{
+    // Check if the exception is an instance of MethodNotAllowedHttpException
+    if ($exception instanceof MethodNotAllowedHttpException) {
+        // Redirect to the dashboard with a flash message
+        return redirect('/dashboard')->with('error', 'The action you tried to perform is not allowed.');
+    }
+
+    // Handle other exceptions as normal
+    return parent::render($request, $exception);
+}
 }
