@@ -72,21 +72,4 @@
     </div>
 </div>
 
-<!-- Form for toggling like -->
-<form method="POST" action="{{ route('posts.like.toggle', ['slug' => $post->subpage->slug, 'post' => $post->id]) }}">
-    @csrf
-    <!-- ... -->
-</form>
 
-<!-- Form for deleting a post -->
-<form method="POST" action="{{ route('subpages.posts.destroy', ['slug' => $subpage->slug, 'postSlug' => $post->slug]) }}" id="delete-form-{{ $post->id }}">
-    @csrf
-    @method('DELETE')
-    <!-- ... -->
-</form>
-
-<!-- Form for adding a comment -->
-<form method="POST" action="{{ route('posts.comments.store', ['slug' => $post->subpage->slug, 'post' => $post->id]) }}">
-    @csrf
-    <!-- ... -->
-</form>
