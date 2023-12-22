@@ -29,22 +29,11 @@
         @auth
         <div>
             <!-- Toggle button -->
-            <x-primary-button class="ms-3" @click="showCreatePostForm = !showCreatePostForm">
+            <x-primary-button class="ms-3" @click="showCreatePostForm = !showCreatePostForm" type="button">
                     <span x-text="showCreatePostForm ? 'Hide Form' : 'Create Post'"></span>
             </x-primary-button>
         </div>
         @endauth
-
-        @if (auth()->check() && auth()->id() === $post->user_id)
-        <!-- Form for deleting a post -->
-        <form method="POST" action="{{ route('subpages.posts.destroy', [ 'slug' => $subpage_slug, 'postSlug' => $post_slug]) }}" >
-            @csrf
-            @method('DELETE')
-            <x-secondary-button class="button-space red" type="submit">
-                {{ __('Delete') }}
-            </x-secondary-button>
-        </form>
-    @endif
 
         <div >
             <!-- This div will show/hide based on the Alpine.js state -->
