@@ -24,21 +24,50 @@
     </div>
     
     <div class="b-2">
-        <!-- 'slug' is the one in the route and gets its value from '$subpage_slug '. The $subpage_slug value is being transfered from the parrent blade via the props at the top. -->
-        <form method="POST" action="{{ route('posts.like.toggle', ['slug' => $subpage_slug, 'post_slug' => $post_slug]) }}"> 
+        <!-- 'slug' is the one in the route and gets its value from '$subpage_slug '. The '$subpage_slug' value is being transfered from the parrent blade via the props at the top. -->
+        <form method="POST" action="{{ route('posts.like.toggle', ['slug' => $subpage_slug, 'postSlug' => $post_slug]) }}"> 
             @csrf
             <x-secondary-button type="submit" class="button-space {{ $post->isLikedByUser(Auth::user()) ? 'liked' : 'not-liked' }}">
                 {{ $post->likes->count() }} {{ __('Like') }}
             </x-secondary-button>
         </form>
 
+        <!-- Show/Hide Comment Section -->
         <x-secondary-button class="button-space" type="button" onclick="toggleCommentSection({{ $post->id }})">
             {{ __('Comment') }}
         </x-secondary-button>
 
+
+        <!-- Hidden Comment Section -->
+        <div id="comment-section-{{ $post->id }}" class="comment-section" style="display: none;">
+             <!-- 'slug' is the one in the route and gets its value from '$subpage_slug '. The '$subpage_slug' value is being transfered from the parrent blade via the props at the top. -->
+            <form method="POST" action="{{ route('posts.comments.store', ['slug' => $subpage_slug, 'postSlug' => $post_slug]) }}">
+                @csrf
+                <x-textarea-input name="content" class="block mt-1 w-full" rows="3" placeholder="Write a comment..."></x-textarea-input>
+                <x-primary-button class="ms-3" type="submit">
+                    {{ __('Post Comment') }}
+                </x-primary-button>
+            </form>
+            @foreach($post->comments as $comment)
+            <x-comment-template 
+                :profileName='$comment->user->name'
+                :content='$comment->content'
+                :createdAt='$comment->created_at->diffForHumans()'
+                :comment='$comment'
+            ></x-comment-template>
+            @endforeach
+        </div>
+
+
+
+
         <x-secondary-button class="button-space" type="button">
             {{ __('Share') }} <!-- Placeholder for share functionality -->
         </x-secondary-button>
+
+
+
+
 
         {{--
         @if (auth()->check() && auth()->id() === $post->user_id)

@@ -27,6 +27,8 @@
                     :post="$post"
                     :subpageName="$post->subpage->name"
                     :showSubpageName="true"
+                    :subpage_slug="$subpage->slug"
+                    :post_slug="$post->slug"
                 >
                 </x-blog-template>
             @empty
