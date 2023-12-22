@@ -49,12 +49,14 @@ Route::middleware('auth')->group(function () {
 // Middleware for all the routes
 Route::middleware(['auth'])->group(function () {
     // Subpage Routes
-    Route::resource('subpages', SubpageController::class);
-    Route::get('/subpages', [SubpageController::class, 'subscribed'])->name('subpages.subscribed'); // show all subpages - working
+    Route::get('/subpages', [SubpageController::class, 'showAll'])->name('subpages.showAll'); // 
+    Route::get('/subpages/search', [SubpageController::class, 'search'])->name('subpages.search');
     Route::get('/subpages/create', [SubpageController::class, 'create'])->name('subpages.create'); // show create form for subpages - working
-    Route::get('/subpages/{slug}', [SubpageController::class, 'show'])->name('subpages.show'); // show a specific subpage with slug - working
+    Route::get('/subpages/subscribed', [SubpageController::class, 'subscribed'])->name('subpages.subscribed'); // show all subscribed subpages - working
+    Route::get('/subpages/{slug}', [SubpageController::class, 'showSubpage'])->name('subpages.showSubpage'); // show a specific subpage with slug - working
     Route::post('/subpages', [SubpageController::class, 'store'])->name('subpages.store'); // create and store a subpage from the create form - working
-    //Route::delete('/subpages/{slug}/subpageDelete', [SubpageController::class, 'destroy'])->name('subpages.delete'); // show a specific subpage with slug - working
+    Route::delete('/subpages/{slug}/subpageDelete', [SubpageController::class, 'destroy'])->name('subpages.delete'); // show a specific subpage with slug - working
+
 
     // Subscription Routes
     Route::post('/subpages/{slug}/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe'); // subscribe to a page
