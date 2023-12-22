@@ -5,7 +5,7 @@
         </h2>
     </x-slot> 
 
-    <div class="container">
+    <div class="py-12">
         <div class="py-12">
             @forelse (auth()->user()->subscriptions as $subpage)
                 <div class="box w-1">
