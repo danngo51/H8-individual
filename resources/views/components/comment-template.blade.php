@@ -19,12 +19,11 @@
                 <form method="POST" action="{{ route('comments.destroy', $comment->id) }}" id="delete-comment-form-{{ $comment->id }}">
                     @csrf
                     @method('DELETE')
-                    <x-secondary-button class="button-space red" type="button" onclick="deleteComment(event, 'delete-comment-form-{{ $comment->id }}')">
+                    <x-danger-button class="button-space red" type="button" onclick="deleteComment(event, 'delete-comment-form-{{ $comment->id }}')">
                         {{ __('Delete') }}
-                    </x-secondary-button>
+                    </x-danger-button>
                 </form>
             @endif
-            
             
         </form>
 

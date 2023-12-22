@@ -78,6 +78,10 @@ Route::middleware(['auth'])->group(function () {
     // Toggle like for a comment
     Route::post('/{comment}/toggleLike', [CommentController::class, 'toggleLike'])->name('comments.like.toggle'); // toggle like for a comment - working
 
+    // Delete comment
+    Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
+
+
 });
 
 

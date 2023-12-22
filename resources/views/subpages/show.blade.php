@@ -35,19 +35,19 @@
         </div>
         @endauth
 
-        <div >
+        <div class="w">
             <!-- This div will show/hide based on the Alpine.js state -->
-            <div x-show="showCreatePostForm" x-cloak>
+            <div class="w" x-show="showCreatePostForm" x-cloak>
                 <form method="POST" action="{{ route('subpages.posts.store', $subpage) }}" class="mt-4">
                 @csrf
                     <div>
                         @csrf <!-- CSRF token for security -->
                         <h2 class="p-1"> Create a H8 post </h2>
-                        <div class="form-title">
-                            <x-text-input id="title" class="block mt-1 w" type="text" name="title" placeholder="Title" required autofocus required class="form-control" />
+                        <div class="form-title w">
+                            <x-text-input id="title" class="block mt-1 w" style="width: 100%" type="text" name="title" placeholder="Title" required autofocus required class="form-control" />
                         </div>
                         <div class="content-text">
-                            <x-textarea-input id="content" class="block mt-1 w-1" name="content" placeholder="Write your blog post here..." rows="4" required required class="form-control"></x-textarea-input>
+                            <x-textarea-input id="content" class="block mt-1 w-1" style="resize: none;" name="content" placeholder="Write your blog post here..." rows="4" required required class="form-control"></x-textarea-input>
                             <x-primary-button class="ms-3" type="submit">
                                 {{ __('Post') }}
                             </x-primary-button>

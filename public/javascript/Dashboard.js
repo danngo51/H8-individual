@@ -26,6 +26,7 @@ function deletePost(event, formId) {
 }
 
 function deleteComment(event, formId) {
+    console.log(formId)
     event.preventDefault();
     Swal.fire({
         title: 'Are you sure?',
@@ -38,6 +39,7 @@ function deleteComment(event, formId) {
         cancelButtonText: 'No, cancel!'
     }).then((result) => {
         if (result.isConfirmed) {
+            console.log(document.getElementById(formId));
             document.getElementById(formId).submit();
         }
     });
