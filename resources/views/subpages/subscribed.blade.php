@@ -11,7 +11,7 @@
                 <div class="py-12 box w-1">
                     <h3 class="h">{{ $subpage->name }}</h3>
                     <p class="p-1">{{ $subpage->description }}</p>
-                    <a class="blue-font fira" href="{{ route('subpages.show', $subpage->slug) }}">View Subpage</a>
+                    <a class="blue-font fira" href="{{ route('subpages.showSubpage', $subpage->slug) }}">View Subpage</a>
                 </div>
             @empty
                 <div class="p-1">

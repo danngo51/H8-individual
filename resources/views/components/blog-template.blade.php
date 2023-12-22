@@ -77,8 +77,6 @@
        ></x-comment-template>
        @endforeach
    </div>
-    
-    
 </div>
 
 

@@ -10,15 +10,22 @@ use Illuminate\Support\Str;
 
 class SubpageController extends Controller
 {
+    // Display all subpages
+    public function showAll()
+    {
+        return view('subpages.subpages');
+    }
 
      // Display the specified subpage
-     public function show($slug)
+    public function showSubpage($slug)
     {
         $subpage = Subpage::with(['posts' => function($query) {
             $query->orderBy('created_at', 'desc');
         }])->where('slug', $slug)->firstOrFail();
         return view('subpages.show', compact('subpage'));
     }
+
+
 
     
     public function subscribed()
@@ -46,7 +53,7 @@ class SubpageController extends Controller
         // Subscribe the user
         auth()->user()->subscriptions()->attach($subpage->id);
         
-        return redirect()->route('subpages.show', $subpage->slug);
+        return redirect()->route('showSubpage', $subpage->slug);
     }
 
     /*public function destroy($slug, $postSlug)

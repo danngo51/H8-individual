@@ -44,7 +44,7 @@ class PostController extends Controller
 
         $post->save();
 
-        return redirect()->route('subpages.show', $subpage->slug);
+        return redirect()->route('subpages.showSubpage', $subpage->slug);
     }
 
 

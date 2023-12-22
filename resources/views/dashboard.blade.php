@@ -18,7 +18,7 @@
                 </x-blog-template>
             @empty
                 <div class="no-post">
-                    <p>You have not subscribed to any subpages or there are no posts yet.</p>
+                    <p>It seems you don't have any posts. Subscribe to a page and start H8'ing</p>
                 </div>
             @endforelse
         </div>
