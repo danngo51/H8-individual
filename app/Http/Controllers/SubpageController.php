@@ -10,12 +10,7 @@ use Illuminate\Support\Str;
 
 class SubpageController extends Controller
 {
-    // Display all subpages
-    public function showAll()
-    {
-        return view('subpages.subpages');
-    }
-
+ 
      // Display the specified subpage
     public function showSubpage($slug)
     {
@@ -25,9 +20,26 @@ class SubpageController extends Controller
         return view('subpages.show', compact('subpage'));
     }
 
+    // Method to show all subpages
+    public function showAll()
+    {
+        $subpages = Subpage::all();
+        return view('subpages.subpages', compact('subpages'));
+    }
 
+    // Method to handle the search
+    public function search(Request $request)
+    {
+        $query = Subpage::query();
 
-    
+        if ($search = $request->input('search')) {
+            $query->where('name', 'like', "%{$search}%")
+                  ->orWhere('description', 'like', "%{$search}%");
+        }
+
+        $subpages = $query->get();
+        return view('subpages.subpages', compact('subpages'));
+    }
     public function subscribed()
     {
         return view('subpages.subscribed');

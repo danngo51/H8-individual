@@ -50,6 +50,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth'])->group(function () {
     // Subpages
     Route::get('/subpages', [SubpageController::class, 'showAll'])->name('subpages.showAll'); // 
+    Route::get('/subpages/search', [SubpageController::class, 'search'])->name('subpages.search');
     Route::get('/subpages/create', [SubpageController::class, 'create'])->name('subpages.create'); // show create form for subpages - working
     Route::get('/subpages/subscribed', [SubpageController::class, 'subscribed'])->name('subpages.subscribed'); // show all subscribed subpages - working
     Route::get('/subpages/{slug}', [SubpageController::class, 'showSubpage'])->name('subpages.showSubpage'); // show a specific subpage with slug - working
