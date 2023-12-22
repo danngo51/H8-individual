@@ -25,7 +25,7 @@
         <script src="{{ asset('javascript/Profile.js') }}"> </script>
         <script src="//unpkg.com/alpinejs" defer></script>
         
-        
+
         <style> [x-cloak] { display: none; }</style> <!-- this to hide the form before the script is loaded for the creation of a post on the subpage. -->
         <!-- Note! everything using the x-cloak will be on cloak from the start! -->
 

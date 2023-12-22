@@ -62,13 +62,14 @@ Route::middleware(['auth'])->group(function () {
 
     // Nested Post Routes for a subpage (using slug)
     Route::post('/subpages/{slug}/post', [PostController::class, 'store'])->name('subpages.posts.store'); // create and store a new post inside subpage with unique slug within the subpage - working
-    Route::delete('/subpages/{slug}/postDelete/{postSlug}', [PostController::class, 'destroy'])->name('subpages.posts.destroy'); // outcommented in blog template
+    
 
     // Toggle like for a post
     Route::post('/subpage/{slug}/post/{postSlug}/toggle-like', [PostController::class, 'toggleLike'])->name('posts.like.toggle');  // toggle like for a post - working
 
+
     // Delete a post
-    Route::delete('/subpage/{slug}/post/{postSlug}', [PostController::class, 'destroy'])->name('subpages.posts.destroy');
+    Route::delete('/subpages/{slug}/postDelete/{postSlug}', [PostController::class, 'destroy'])->name('subpages.posts.destroy');
 
     // Store a comment
     Route::post('/subpage/{slug}/post/{postSlug}/comment', [CommentController::class, 'store'])->name('posts.comments.store'); // comment a post - working

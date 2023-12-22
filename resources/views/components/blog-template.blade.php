@@ -32,6 +32,7 @@
             </x-secondary-button>
         </form>
 
+
         <!-- Show/Hide Comment Section -->
         <x-secondary-button class="button-space" type="button" onclick="toggleCommentSection({{ $post->id }})">
             {{ __('Comment') }}
@@ -58,29 +59,23 @@
             @endforeach
         </div>
 
-
-
-
         <x-secondary-button class="button-space" type="button">
             {{ __('Share') }} <!-- Placeholder for share functionality -->
         </x-secondary-button>
 
-
-
-
-
-        {{--
+        
+        
         @if (auth()->check() && auth()->id() === $post->user_id)
             <!-- Form for deleting a post -->
-            <form method="POST" action="{{ route('subpages.posts.destroy', [ 'slug' => $slug, 'postSlug' => $post->slug]) }}" id="delete-form-{{ $post->id }}">
+            <form method="POST" action="{{ route('subpages.posts.destroy', [ 'slug' => $subpage_slug, 'postSlug' => $post_slug]) }}" >
                 @csrf
                 @method('DELETE')
-                <x-secondary-button class="button-space red" type="button" onclick="deletePost(event, 'delete-form-{{ $post->id }}')">
+                <x-secondary-button class="button-space red" type="submit">
                     {{ __('Delete') }}
                 </x-secondary-button>
             </form>
         @endif
-        --}}
+        
         
 
     </div>
