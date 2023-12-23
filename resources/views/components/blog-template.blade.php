@@ -34,7 +34,7 @@
 
 
         <!-- Show/Hide Comment Section -->
-        <x-secondary-button class="button-space" type="button" onclick="toggleCommentSection({{ $post->id }})">
+        <x-secondary-button class="button-space blog-comment-btn" type="button" data-post-id="{{ $post->id }}">
             {{ __('Comment') }}
         </x-secondary-button>
 
@@ -49,12 +49,12 @@
             <form method="POST" id="delete-form-{{ $post->id }}" action="{{ route('subpages.posts.destroy', ['slug' => $subpage_slug, 'postSlug' => $post->slug]) }}">
                 @csrf
                 @method('DELETE')
-                <x-danger-button class="button-space red end" onclick="deletePost(event, 'delete-form-{{ $post->id }}')">
+                <x-danger-button class="button-space red end delete-post-btn" type="button" data-form-id="delete-form-{{ $post->id }}">
                     {{ __('Delete') }}
                 </x-danger-button>
             </form>
         @endif
-        
+
 
     </div>
 

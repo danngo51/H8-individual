@@ -17,14 +17,14 @@
         </form>
 
         @if (auth()->check() && auth()->id() === $comment->user_id)
-                <form method="POST" action="{{ route('comments.destroy', $comment->id) }}" id="delete-comment-form-{{ $comment->id }}">
-                    @csrf
-                    @method('DELETE')
-                    <x-danger-button class="button-space red" type="submit" onclick="deleteComment(event, 'delete-comment-form-{{ $comment->id }}')">
-                        {{ __('Delete') }}
-                    </x-danger-button>
-                </form>
-            @endif
+            <form method="POST" action="{{ route('comments.destroy', $comment->id) }}" id="delete-comment-form-{{ $comment->id }}">
+                @csrf
+                @method('DELETE')
+                <x-danger-button class="button-space red delete-comment-btn" type="button" data-form-id="delete-comment-form-{{ $comment->id }}">
+                    {{ __('Delete') }}
+                </x-danger-button>
+            </form>
+        @endif
 
     </div>
 </div>

@@ -15,13 +15,13 @@
         </div>
 
        <div> 
-        <x-secondary-button class="button-space" type="button" onclick="togglePosts()">
+        <x-secondary-button class="button-space toggle-posts-btn" id="toggle-posts-btn" type="button">
             {{ __('Posts') }}
-        </x-secondary-button>        
-
-        <x-secondary-button class="button-space" type="button" onclick="toggleComments()">
-            {{ __('Comments') }}
         </x-secondary-button>
+        
+        <x-secondary-button class="button-space toggle-comments-btn" id="toggle-comments-btn" type="button">
+            {{ __('Comments') }}
+        </x-secondary-button>        
 
         <x-secondary-button class="button-space" type="button" onclick="showLikedPosts()">
             {{__('Likes') }}
