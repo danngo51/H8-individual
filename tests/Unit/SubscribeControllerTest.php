@@ -4,7 +4,7 @@ namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 
-class SubscriptionControllerTest extends TestCase
+class SubscribeControllerTest extends TestCase
 {
     /**
      * A basic unit test example.
