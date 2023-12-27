@@ -14,14 +14,13 @@ class PostFactory extends Factory
 
     public function definition()
     {
+        $title = $this->faker->words(3, true); // Generates a random name
         return [
             'user_id' => User::factory(), // Creates a User for each Post
             'subpage_id' => Subpage::factory(), // Creates a Subpage for each Post
-            'title' => $this->faker->sentence,
+            'title' => $title,
             'content' => $this->faker->paragraph,
-            'slug' => function (array $attributes) {
-                return Str::slug($attributes['title']);
-            },
+            'slug' => Str::slug($title),
         ];
     }
 }
