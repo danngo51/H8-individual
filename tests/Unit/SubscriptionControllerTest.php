@@ -3,13 +3,12 @@
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use App\Models\User;
-use App\Models\Post;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class DashboardControllerTest extends TestCase
+class SubscriptionControllerTest extends TestCase
 {
-
+    /**
+     * A basic unit test example.
+     */
     public function test_example(): void
     {
         $this->assertTrue(true);
