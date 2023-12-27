@@ -45,7 +45,6 @@ class SubpageControllerTest extends TestCase
         // Assert that the result is a View instance
         $this->assertInstanceOf(View::class, $view);
 
-        // You can add more specific assertions based on your controller's behavior
     }
 
     public function testSearch()
@@ -62,6 +61,6 @@ class SubpageControllerTest extends TestCase
         // Assert that the result is a View instance
         $this->assertInstanceOf(View::class, $view);
 
-        // You can add more specific assertions based on your controller's behavior
+        
     }
 }
