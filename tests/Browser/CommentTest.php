@@ -11,7 +11,7 @@ use \App\Models\Subpage;
 
 class CommentTest extends DuskTestCase
 {
-    /*
+    
     use DatabaseMigrations;
     public function testCommentOnPost()
     {
@@ -34,6 +34,6 @@ class CommentTest extends DuskTestCase
 
         });
     }
-    */
+    
     
 }
