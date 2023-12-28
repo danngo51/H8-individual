@@ -7,10 +7,7 @@ use PHPUnit\Framework\TestCase;
 class CommentControllerTest extends TestCase
 {
     /**
-     * A basic unit test example.
+     * No unit tests
      */
-    public function test_example(): void
-    {
-        $this->assertTrue(true);
-    }
+   
 }
