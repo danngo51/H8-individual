@@ -43,9 +43,9 @@ class PostTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) use ($user, $subpage) {
             $browser->visit(route('subpages.showSubpage', ['slug' => $subpage->slug]))
-                ->screenshot('/post/before-like')
+                ->screenshot('/like-post/before-like')
                 ->press("LIKE")
-                ->screenshot('/post/after-like');
+                ->screenshot('/like-post/after-like');
         });
     }
    
