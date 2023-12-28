@@ -7,10 +7,7 @@ use PHPUnit\Framework\TestCase;
 class SubscriptionControllerTest extends TestCase
 {
     /**
-     * A basic unit test example.
+     * no subscription unit tests
      */
-    public function test_example(): void
-    {
-        $this->assertTrue(true);
-    }
+    
 }
