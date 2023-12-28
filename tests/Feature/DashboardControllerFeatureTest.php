@@ -2,19 +2,32 @@
 
 namespace Tests\Feature;
 
+use Tests\TestCase; // Extends 'use PHPUnit\Framework\TestCase;' that is why it is not imported here
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Tests\TestCase;
+use App\Models\Subpage;
+use App\Models\User;
+use App\Models\Post;
 
 class DashboardControllerFeatureTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     */
-    public function test_example(): void
+    use RefreshDatabase;
+    public function test_dashboard_displays_posts_from_subscribed_subpages()
     {
-        $response = $this->get('/');
+        $user = User::factory()->create();
+        $subpage = Subpage::factory()->create();
+        $subpage->subscribers()->attach($user->id);
+        $post = Post::factory()->create(['subpage_id' => $subpage->id]);
+
+        $this->actingAs($user);
+
+        $response = $this->get(route('dashboard'));
 
         $response->assertStatus(200);
+        $response->assertViewIs('dashboard');
+        $response->assertViewHas('posts', function ($posts) use ($post) {
+            return $posts->contains($post);
+        });
     }
+
 }
